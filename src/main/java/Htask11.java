@@ -1,5 +1,4 @@
 /**
- * Created by Step on 22.02.23
  * Задача:
  * Учитывая входную строку, измените порядок слов в обратном порядке.
  * Слово определяется как последовательность символов, не содержащих пробелов. Слова разделены по крайней мере одним пробелом.
@@ -18,5 +17,24 @@
  * Вывод: "пример хорошего a"
  * Объяснение: Вам нужно сократить несколько пробелов между двумя словами до одного пробела в перевернутой строке.
  */
-public class Htask11 {
+import java.util.Scanner;
+
+    public class Htask11 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.printf("Введите слова через робел: ");
+        String s = sc.nextLine();
+        System.out.printf("Абра-кадабра задом-наперёд: %s", reverseWords(s));
+    }
+
+    public static String reverseWords(String str) {
+        String result = "";
+        for (int i = (str.split("\\s+")).length - 1; i >= 0; i--) {
+            result += (str.split("\\s+"))[i];
+            if (i > 0) {
+                result += " ";
+            }
+        }
+        return result;
+    }
 }
