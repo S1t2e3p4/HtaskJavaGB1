@@ -7,5 +7,27 @@
 суммарно выведет 5
  */
 
+
+import java.util.Scanner;
+
+
 public class Htask12 {
+    public static void main(String[] args) {
+        System.out.printf("Сумма положительных чисел, стоящих перед отрицательными числами равна: %d", getSum(0));
+    }
+    public static int getSum(int positiveNumberSum) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите любые числа, чередуя отрицательные и положительные ЧЕРЕЗ ПРОБЕЛ!!! После заполнения введите 0 и нажмите enter: ");
+        int num = scanner.nextInt();
+
+        do {
+            int nextNum = scanner.nextInt();
+            if (num > 0 && nextNum < 0) {
+                positiveNumberSum += num;
+            }
+            num = nextNum;
+        } while (num != 0);
+
+        return positiveNumberSum;
+    }
 }
